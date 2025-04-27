@@ -1,0 +1,42 @@
+body {
+    background-color: #f8f9fa;
+    background-image: url(images/bg_money.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.converter-container {
+    max-width: 500px;
+    margin: 150px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+.converter-title {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.result-box {
+    background-color: #e9f7ef;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none;
+}
+.form-switch {
+    margin: 15px 0;
+}
+.btn-convert {
+    background-color: #3498db;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+}
+.btn-convert:hover {
+    background-color: #2980b9;
+}

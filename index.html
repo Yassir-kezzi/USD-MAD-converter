@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter USD ↔ MAD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- link css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="converter-container">
+            <h2 class="converter-title">Converter USD ↔ MAD</h2>
+            
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount to convert</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter amount">
+            </div>
+            
+            <div class="form-switch">
+                <input class="form-check-input" type="checkbox" id="conversionDirection" onchange="updateConversionLabels()">
+                <label class="form-check-label" for="conversionDirection" id="conversionLabel">USD → MAD</label>
+            </div>
+            
+            <div class="mb-3">
+                <label for="exchangeRate" class="form-label">Exchange rate (1 USD = ? MAD)</label>
+                <input type="number" class="form-control" id="exchangeRate" value="10.0" step="0.01">
+            </div>
+            
+            <button class="btn btn-primary btn-convert" onclick="convertCurrency()">Convert</button>
+            
+            <div class="result-box" id="resultBox">
+                <h5 id="resultText"></h5>
+            </div>
+        </div>
+    </div>
+<script src="converter.js"></script>
+
+</body>
+</html>
