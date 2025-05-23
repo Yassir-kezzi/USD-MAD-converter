@@ -1,42 +1,228 @@
 body {
-    background-color: #f8f9fa;
-    background-image: url(images/bg_money.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, #FFC371, #FF5F6D, #556270); 
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite alternate; 
+    color: #333;
+    overflow: hidden; 
 }
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .converter-container {
-    max-width: 500px;
-    margin: 150px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-.converter-title {
-    color: #2c3e50;
-    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.95); 
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
     text-align: center;
-    font-weight: bold;
-}
-.result-box {
-    background-color: #e9f7ef;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: none;
-}
-.form-switch {
-    margin: 15px 0;
-}
-.btn-convert {
-    background-color: #3498db;
-    border: none;
     width: 100%;
-    padding: 10px;
-    font-weight: bold;
+    max-width: 500px; 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    transform: perspective(1000px) rotateY(0deg);
+    animation: entranceEffect 1s ease-out forwards; 
+    position: relative;
+    z-index: 1;
 }
+
+@keyframes entranceEffect {
+    from {
+        opacity: 0;
+        transform: perspective(1000px) rotateY(15deg) translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(1000px) rotateY(0deg) translateY(0) scale(1);
+    }
+}
+
+/* Confetti particles for a celebratory feel */
+.converter-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    border-radius: 20px;
+}
+
+
+.converter-title {
+    color: #FF5F6D;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 2.5em; 
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.converter-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px; 
+    background: linear-gradient(to right, #FFC371, #FF5F6D);
+    margin: 15px auto 0;
+    border-radius: 3px;
+    animation: underlineGrow 1.5s ease-out forwards;
+}
+
+@keyframes underlineGrow {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80px;
+    }
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #444;
+    display: block;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.form-control {
+    border-radius: 10px; 
+    border: 1px solid #ddd;
+    padding: 14px 18px; 
+    font-size: 1.15em;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); 
+}
+
+.form-control:focus {
+    border-color: #FF5F6D;
+    box-shadow: 0 0 0 0.25rem rgba(255, 95, 109, 0.25);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.form-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0; 
+}
+
+.form-check-input {
+    width: 3em;
+    height: 1.7em;
+    cursor: pointer;
+    background-color: #ccc;
+    border-color: #ccc;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-check-input:checked {
+    background-color: #FFC371;
+    border-color: #FFC371;
+    transform: scale(1.05);
+}
+
+.form-check-label {
+    margin-left: 12px;
+    font-size: 1.2em; 
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.btn-convert {
+    background: linear-gradient(to right, #FFC371, #FF5F6D); 
+    border: none;
+    padding: 15px 35px; 
+    font-size: 1.3em; 
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(255, 95, 109, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
 .btn-convert:hover {
-    background-color: #2980b9;
+    background: linear-gradient(to right, #FF5F6D, #FFC371); 
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 12px 25px rgba(255, 95, 109, 0.4);
+}
+
+.btn-convert:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(255, 95, 109, 0.2);
+}
+
+.btn-convert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    transition: 0.7s;
+}
+
+.btn-convert:hover::before {
+    left: 100%;
+}
+
+.result-box {
+    background-color: #e6f7ff; 
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin-top: 35px;
+    border: 1px solid #b3e0ff;
+    animation: resultPop 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes resultPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+#resultText {
+    color: #007bff; 
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }

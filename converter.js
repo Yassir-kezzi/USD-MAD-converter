@@ -26,8 +26,8 @@
         }
 
         // Add Enter key support
-        document.getElementById('amount').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
+        document.getElementById('amount').addEventListener('keypress', function() {
+            if (key === 'Enter') {
                 convertCurrency();
             }
         });
